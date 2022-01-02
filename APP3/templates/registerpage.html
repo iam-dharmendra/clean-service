@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="{%static 'css/registerpage.css' %}" type="text/css" rel="stylesheet" media="all"></link>
+        
+        <h1>Register-Page</h1>
+    </head>
+    <body>
+        <div>
+            <div id='main'>
+                <form method="POST">
+                    {% csrf_token %}
+                    <div class="tag">
+                        <label>Name</label>
+                        <input type="text" name='Rname' placeholder="enter your name" required>
+                    </div>
+                    
+                    <div class="tag">
+                        <label>Email</label>
+                        <input type="email" name='Remail' placeholder="enter your email" required>
+                    </div>
+                    
+                    <div class="tag">
+                        <label>Password</label>
+                        <input type="password" name='Rpassword'placeholder="enter your password" required>
+                    </div>
+                    <div class="tag">
+                        <label>Confirm-Password</label>
+                        <input type="password" name='Cnfpassword'placeholder="enter your password" required>
+                    </div>
+                    
+                    <div class="tag">
+                        <input type="checkbox" required><label>I am agree to this terms and conditions</label>
+                    </div>
+                     
+                    <div>
+                        <ul>
+                            <li><a href="{% url 'loginpage' %}">Login</a></li>
+                            <li><input type="submit" value="register"></li>
+                        </ul>    
+                    </div> 
+                    
+                </form>
+            </div>    
+               
+        </div>
+            
+    </body>
+</html>

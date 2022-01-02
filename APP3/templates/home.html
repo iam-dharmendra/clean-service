@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="{%static 'css/homepage.css' %}" type="text/css" rel="stylesheet" media="all"></link>
+        <h1>Home-Page</h1>
+    </head>
+    <body>
+        <div>
+            <div id='main'>
+
+                <div>
+                    <h3> welcome {{ob.username}}</h3>
+                </div>
+                <div id='tag'>
+                    <ul>
+                        <li class="drlist"><a href="#">SERVICE</a>
+                            <ul class="drcontent">
+                                <li class="hlist"><button>Home cleaning</button>
+                                    <ul class="hcontent">
+                                        {% for i in h %}
+                                        <li><a href="{% url "service" i.id %}">{{i.title}}</a></li>
+                                        {% endfor %}
+                                    </ul>
+                                </li>
+                                <li class="hlist" ><button>Commercial cleaning</button>
+                                    <ul class="hcontent">
+                                        {% for i in c %}
+                                        <li><a href="{% url "service" i.id %}">{{i.title}}</a></li>
+                                        {% endfor %}
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href="">CONTACT</a></li>
+                        <li><a href="">ABOUT</a></li>
+                        <li><a href='{% url "mycart"  %}'>MYCART</a></li>
+                        <li>
+                            <div class="tag">
+                                <form method="POST">
+                                    {% csrf_token %}
+                                    <input type="text" name='search'placeholder="search....">
+                                    <label><input type="submit" value="search"></label>
+                                </form>
+                                
+                            </div>
+                        </li>
+                        <li><a href="{% url 'logout' %}">LOGOUT</a></li>
+                    </ul>
+                </div>
+                
+            </div>    
+                
+        </div>
+            
+    </body>
+</html>

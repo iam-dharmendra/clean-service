@@ -1,0 +1,12 @@
+.or{
+    border: 2px navy solid;
+    width: fit-content;
+    align-items: center;
+}
+.oritem{
+    margin: 10px;
+}
+a{
+    border: 2px navy solid;
+    margin-left: 180px;
+}

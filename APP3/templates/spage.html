@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="{%static 'css/spage.css' %}" type="text/css" rel="stylesheet" media="all"></link>
+        <a href="{% url 'home' %}">HOME</a>
+        <h3>{{obj.title}}</h3>
+    </head>
+    <body>
+        <div>
+            <div>
+                <img src="{{BASIC_DIR}}/{{obj.img}}" width="350">
+            </div>
+            <p>{{obj.description}}</p>
+            <p>{{obj.price}}</p>
+            
+            <form method="POST">
+                {% csrf_token %}
+               Qunatity
+               <input type="submit" value="-" name='psub' style="margin-left: 5px;margin-bottom: 15px;">
+               <input value={{qty}} min="1" name="qty" readonly>
+               <input type="submit" value="+" name='psub'>
+            </form>
+            
+            <div class="order">
+                
+                <div class="item"><a href="{% url "sorder" obj.id qty %}">BOOK</a></div>
+                <div class="item"><a href="{% url "cart" obj.id  qty %}">Add to cart</a></div>
+                
+            </div>
+        </div>
+    </body>
+</html>

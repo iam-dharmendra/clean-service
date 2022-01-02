@@ -1,0 +1,34 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="{%static 'css/forgotpage.css' %}" type="text/css" rel="stylesheet" media="all"></link>    
+        <h1>OTP-Page</h1>
+    </head>
+    <body>
+        <div>
+            <div id='main'>
+                <form method="POST">
+                    {% csrf_token %}
+                    <div class="tag">
+                        <label>OTP</label>
+                        <input type="text" name='fotp' placeholder="enter the OTP" required>
+                    </div>
+                    
+                    <p>Note: enter the otp which send on your email </p>
+
+                    <!-- <div class="tag">
+                        <label>OTP</label>
+                        <input type="text" name='fotp' placeholder="enter the otp" required>
+                    </div> -->
+                        
+                    <div class="tag">
+                        <input type="submit" value="submit">
+                    </div>
+                </form>
+            </div>    
+               
+        </div>
+            
+    </body>
+</html>
