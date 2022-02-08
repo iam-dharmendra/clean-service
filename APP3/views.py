@@ -13,9 +13,8 @@ from email.message import EmailMessage
 import random
 import razorpay
 import datetime
+
 # Create your views here.
-
-
 def home(self):
     if 'email' in self.session:
 
